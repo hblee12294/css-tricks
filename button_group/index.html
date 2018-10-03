@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Button Group</title>
+  <style>
+    .btn-group button {
+      background-color: #333;
+      color: #fff;
+      border: 2px solid #000;
+      cursor: pointer;
+      float: left;
+      padding: 8px 13px;
+      transition: all .2s;
+    }
+
+    .btn-group-verti button {
+      display: block;
+      float: none;
+      width: 100px;
+    }
+
+    .btn-group button:not(:last-child) {
+      border-right: none;
+    }
+
+    .btn-group-verti button:not(:last-child) {
+      border-bottom: none;
+    }
+
+    .btn-group button:hover {
+      background-color: #000;
+    }
+
+    .clearfix {
+      *zoom: 1;
+    }
+
+    .clearfix:before, .clearfix:after {
+      content: '';
+      display: table;
+      clear: both;
+      line-height: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="btn-group clearfix">
+    <button>Xiaomi</button>
+    <button>Oppo</button>
+    <button>Vivo</button>
+  </div>
+
+  <br>
+
+  <div class="btn-group btn-group-verti clearfix">
+    <button>Xiaomi</button>
+    <button>Oppo</button>
+    <button>Vivo</button>
+  </div>
+</body>
+</html>
