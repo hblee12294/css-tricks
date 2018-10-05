@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Flex layout</title>
+  <style>
+    html, body {
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      background-color: #f5f5f5;
+      font-family: Verdana;
+      font-size: 14px;
+    }
+
+    /* --- Header --- */
+    header {
+      height: 50px;
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      z-index: 1;
+      background-color: #fff;
+    }
+
+    .menu-control {
+      position: absolute;
+      z-index: 3;
+    }
+
+    .menu-btn {
+      display: inline-block;
+    }
+
+    .bar1, .bar2, .bar3 {
+      width: 30px;
+      height: 5px;
+      background-color: #333;
+      margin: 5px 0;
+    }
+
+    .genre {
+      display: inline-block;
+      font-weight: bold;
+    }
+
+    .search-bar {
+      display: inline-block;
+    }
+
+    nav {
+      width: 0;
+      height: 100%;
+      position: fixed;
+      z-index: 2;
+      top: 0;
+      left: 0;
+      background-color: #f2f2f2;
+      overflow-x: hidden;
+    }
+
+    .filter {
+      margin-top: 50px;
+    }
+
+    .filter a {
+      display: block;
+      padding: 10px 15px;
+      color: #333;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: bold;
+      transition: .2s;
+    }
+
+    .filter a:hover {
+      color: #eee;
+      background-color: #777;
+    }
+
+    /* --- Tool bar --- */
+    .tool-bar {
+      padding: 15px 20px;
+      margin-top: 50px;
+    }
+
+    /* --- Music display --- */
+    .music {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-around;
+      margin: 0 auto;
+      border: 1px solid blue;
+    }
+
+    .item {
+      box-sizing: border-box;
+      flex-grow: 0;
+      padding: 20px;
+      border: 1px solid black;
+    }
+
+    .item img {
+      width: 200px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="menu-control">
+      <div class="menu-btn">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </div>
+      <div class="genre">Genre</div>
+    </div>
+    <div class="search-bar"></div>
+  </header>
+
+  <nav class="sidenav">
+    <div class="filter">
+      <a href="">All</a>
+      <a href="">Blues</a>
+      <a href="">Classical</a>
+      <a href="">Country</a>
+      <a href="">Hip-Pop</a>
+      <a href="">Jazz</a>
+      <a href="">Metal</a>
+      <a href="">Pop</a>
+      <a href="">R&b</a>
+    </div>
+    <div class="mask"></div>
+  </nav>
+
+  <div class="tool-bar">Popularity</div>
+
+  <div class="music">
+    <div class="item">
+      <img src="asset/all-the-right-reasons.jpg" alt="all-the-right-reasons" />
+      <div class="title">Title</div>
+      <div class="artist">Artist</div>
+    </div>
+    <div class="item">
+      <img src="asset/all-time-greatest-hits.jpg" alt="all-time-greatest-hits" />
+      <div class="title">Title</div>
+      <div class="artist">Artist</div>
+    </div>
+    <div class="item">
+      <img src="asset/angle-and-alcohol.jpg" alt="angle-and-alcohol" />
+      <div class="title">Title</div>
+      <div class="artist">Artist</div>
+    </div>
+    <div class="item">
+      <img src="asset/attention.jpg" alt="attention" />
+      <div class="title">Title</div>
+      <div class="artist">Artist</div>
+    </div>
+    <div class="item">
+      <img src="asset/darkness-and-light.jpg" alt="darkness-and-light" />
+      <div class="title">Title</div>
+      <div class="artist">Artist</div>
+    </div>
+    <div class="item">
+      <img src="asset/i-knew-you-were-trouble.jpg" alt="i-knew-you-were-trouble" />
+      <div class="title">Title</div>
+      <div class="artist">Artist</div>
+    </div>
+    <div class="item">
+      <img src="asset/man-of-the-woods.jpg" alt="man-of-the-woods" />
+      <div class="title">Title</div>
+      <div class="artist">Artist</div>
+    </div>
+    <div class="item">
+      <img src="asset/maps.jpg" alt="maps" />
+      <div class="title">Title</div>
+      <div class="artist">Artist</div>
+    </div>
+    <div class="item">
+      <img src="asset/minutes-to-midnight.jpg" alt="minutes-to-midnight" />
+      <div class="title">Title</div>
+      <div class="artist">Artist</div>
+    </div>
+    <div class="item">
+      <img src="asset/news-of-the-world.jpg" alt="news-of-the-world" />
+      <div class="title">Title</div>
+      <div class="artist">Artist</div>
+    </div>
+    <div class="item">
+      <img src="asset/royalty.jpg" alt="royalty" />
+      <div class="title">Title</div>
+      <div class="artist">Artist</div>
+    </div>
+    <div class="item">
+      <img src="asset/save-rock-and-roll.jpg" alt="save-rock-and-roll" />
+      <div class="title">Title</div>
+      <div class="artist">Artist</div>
+    </div>
+    <div class="item">
+      <img src="asset/say-something.jpg" alt="say-something" />
+      <div class="title">Title</div>
+      <div class="artist">Artist</div>
+    </div>
+    <div class="item">
+      <img src="asset/songs-from-the-arc-of-life.jpg" alt="songs-from-the-arc-of-life" />
+      <div class="title">Title</div>
+      <div class="artist">Artist</div>
+    </div>
+    <div class="item">
+      <img src="asset/the-end.jpg" alt="the-end" />
+      <div class="title">Title</div>
+      <div class="artist">Artist</div>
+    </div>
+    <div class="item">
+      <img src="asset/the-essential-kenny-g.jpg" alt="the-essential-kenny-g" />
+      <div class="title">Title</div>
+      <div class="artist">Artist</div>
+    </div>
+    <div class="item">
+      <img src="asset/the-metallica-collection.jpg" alt="the-metallica-collection" />
+      <div class="title">Title</div>
+      <div class="artist">Artist</div>
+    </div>
+    <div class="item">
+      <img src="asset/trackside-blues.jpg" alt="trackside-blues" />
+      <div class="title">Title</div>
+      <div class="artist">Artist</div>
+    </div>
+    <div class="item">
+      <img src="asset/we-sing-we-dance-we-steal-things.jpg" alt="we-sing-we-dance-we-steal-things" />
+      <div class="title">Title</div>
+      <div class="artist">Artist</div>
+    </div>
+    <div class="item">
+      <img src="asset/x-rays.jpg" alt="x-rays" />
+      <div class="title">Title</div>
+      <div class="artist">Artist</div>
+    </div>
+  </div>
+</body>
+</html>
