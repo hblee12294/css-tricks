@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Dropdown</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: Helvetica;
+    }
+    
+    nav {
+      width: 20%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      background-color: #222;
+      overflow: hidden;
+      padding-top: 20px;
+    }
+
+    nav a, .dropdown-btn {
+      display: inline-block;
+      text-decoration: none;
+      width: 100%;
+      font-family: Helvetica;
+      font-size: 22px;
+      text-align: left;
+      padding: 10px 20px;
+      color: #aaa;
+      background-color: #222;
+      border: 0;
+      transition: .2s;
+      cursor: pointer;
+      vertical-align: middle;
+    }
+
+    nav a:hover, .dropdown-btn:hover {
+      color: #fff;
+    }
+
+    .dropdown-container a {
+      color: #bbb;
+      background-color: #555;
+      padding-left: 30px;
+      font-size: 20px;
+    }
+
+    .dropdown-icon {
+      float: right;
+      font-size: 15px;
+      /* vertical-align: middle; */
+      line-height: 100%;
+    }
+
+    .dropdown-container {
+      display: none;
+    }
+
+    .active {
+      background-color: #547623;
+      color: #fff;
+    }
+
+    /* Content */
+    .content {
+      width: 60%;
+      margin: 15px 20%;
+      padding: 0 20px;
+    }
+
+    .section {
+      margin: 50px 0;
+    }
+
+    .section h2 {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a onclick="jump('about')">About</a>
+    <a onclick="jump('services')">Services</a>
+    <a onclick="jump('clients')">Clients</a>
+    <a onclick="jump('about')">Contact</a>
+    <button class="dropdown-btn">
+      Dropdown <span class="dropdown-icon">▼</span>
+    </button>
+    <div class="dropdown-container">
+      <a href="#">Link 1</a>
+      <a href="#">Link 2</a>
+      <a href="#">Link 3</a>
+    </div>
+    <a onclick="jump('search')">Search</a>
+  </nav>
+
+  <div class="content">
+    <div class="section" id="about">
+      <h2>About</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum eveniet autem vel fugit voluptates dignissimos reiciendis perspiciatis vero, quidem, qui, a ipsa nam molestias sequi at. Temporibus quod officiis ut.</p>
+    </div>
+
+    <div class="section" id="services">
+      <h2>Services</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo voluptatem ab, illum architecto minima quod reprehenderit alias ducimus voluptates eveniet fugiat. Placeat obcaecati ea incidunt dolores ipsum, eligendi repudiandae molestias.</p>
+    </div>
+
+    <div class="section" id="clients">
+      <h2>Clients</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit laboriosam, possimus in incidunt, est pariatur velit tempore temporibus atque nihil doloremque maxime beatae dicta. Pariatur expedita numquam, tenetur quae ea.</p>
+    </div>
+    <div class="section" id="contact">
+      <h2>Contact</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam culpa provident saepe, eius impedit blanditiis ea tenetur temporibus maiores, facere ducimus laborum nostrum quas similique perferendis at, amet eveniet laboriosam.</p>
+    </div>
+
+    <div class="section" id="search">
+      <h2>Search</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti hic ducimus iusto, non similique dolores magni omnis reiciendis dolore et facere reprehenderit ab quasi, excepturi neque nulla voluptatum rerum quos.</p>
+    </div>
+  </div>
+
+  <script>
+    let dropdown = document.getElementsByClassName('dropdown-btn')
+
+    for (let btn of dropdown) {
+      btn.addEventListener('click', function () {
+        this.classList.toggle('active')
+        let dropdownContainer = this.nextElementSibling
+
+        if (dropdownContainer.style.display === 'block') {
+          dropdownContainer.style.display = 'none'
+        } else {
+          dropdownContainer.style.display = 'block'
+        }
+      })
+    }
+
+    function jump(name) {
+      document.getElementById(name).scrollIntoView()
+    }
+  </script>
+</body>
+</html>

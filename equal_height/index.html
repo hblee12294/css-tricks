@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Equal Height</title>
+  <style>
+    .box {
+      border-left: 150px solid #333;
+      background-color: #777;
+    }
+
+    .box:after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+
+    .box > nav {
+      width: 150px;
+      margin-left: -150px;
+      float: left;
+    }
+
+    .box > section {
+      overflow: hidden;
+    }
+
+    .nav {
+      line-height: 40px;
+      color: #fff;
+    }
+
+    .module {
+      line-height: 40px;
+    }
+
+    h3 {
+      margin: 0;
+    }
+
+    nav {
+      border-bottom: 1px solid #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <nav>
+      <h3 class="nav">Nav1</h3>
+    </nav>
+    <section>
+      <div class="module">Module1</div>
+    </section>
+  </div>
+  <div class="box">
+    <nav>
+      <h3 class="nav">Nav2</h3>
+    </nav>
+    <section>
+      <div class="module">Module2</div>
+    </section>
+  </div>
+  <div class="box">
+    <nav>
+      <h3 class="nav">Nav3</h3>
+    </nav>
+    <section>
+      <div class="module">Module3</div>
+    </section>
+  </div>
+</body>
+</html>
