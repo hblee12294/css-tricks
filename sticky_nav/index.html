@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Sticky Nav</title>
+  <style>
+    html, body {
+      padding: 0;
+      margin: 0;
+      font-family: Helvetica;
+      font-size: 18px;
+    }
+
+    .hero {
+      width: 100%;
+      height: 550px;
+      background-image: url(swan2.jpg);
+      background-position: center center;
+    }
+
+    nav {
+      overflow: hidden;
+      background-color: #333;
+    }
+
+    nav a {
+      float: left;
+      display: block;
+      color: #fff;
+      padding: 14px;
+      text-align: center;
+      text-decoration: none;
+      font-size: 20px;
+    }
+
+    nav a:hover {
+      background-color: #555;
+    }
+
+    .sticky {
+      position: fixed;
+      top: 0;
+      width: 100%;
+    }
+
+    .stick + .main {
+      padding-top: 60px;
+    }
+
+    .main {
+      width: 65%;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="hero"></div>
+  
+  <nav id="navbar">
+    <a href="#">Home</a>
+    <a href="#">News</a>
+    <a href="#">Content</a>
+  </nav>
+
+  <div class="main">
+    <h2>First Section</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam, assumenda magnam distinctio. Modi enim, aliquam placeat sapiente facere at maiores dolorum velit sunt sed eius accusantium, qui, autem officiis architecto.</p>
+
+    <h2>Second Section</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque, quis sit nesciunt. Doloremque, esse, inventore. Voluptates quis ullam consectetur dolores quisquam esse labore illo velit optio, eligendi nulla quae quaerat.</p>
+
+    <h2>Third Section</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam placeat dignissimos voluptas, quas magnam explicabo animi reprehenderit, et fugit maxime. Quo alias ratione explicabo odit similique, illo iste modi, perferendis.</p>
+
+    <h2>Fourth Section</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur excepturi iste, soluta, est nihil consequuntur? Mollitia ullam cum aspernatur nihil vel maiores culpa reprehenderit sunt deserunt asperiores. Similique saepe, repellendus!</p>
+
+    <h2>Fifth Section</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, quis, explicabo. Maiores fuga beatae minima, architecto quos commodi adipisci quasi ad debitis laudantium cupiditate laboriosam nesciunt, id ipsum. Corporis, incidunt.</p>
+
+    <h2>Sixth Section</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, quisquam vero dolor nesciunt eaque, quibusdam aut! Alias, magnam ea! Numquam laudantium, error sequi neque illum quibusdam, minus nostrum odit consequuntur.</p>
+  </div>
+
+  <script>
+    window.onscroll = () => fixedBar()
+
+    let navbar = document.getElementById('navbar')
+    let sticky = navbar.offsetTop
+    function fixedBar() {
+      if (window.pageYOffset >= sticky) {
+        navbar.classList.add('sticky')
+      } else {
+        navbar.classList.remove('sticky')
+      }
+    }
+  </script>
+</html>
