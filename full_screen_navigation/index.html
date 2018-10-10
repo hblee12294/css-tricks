@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Fullscreen Navigation</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .overlay {
+      position: fixed;
+      /* left: 0; */
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 0;
+      background-color: #000;
+      overflow-x: hidden;
+      transition: .3s;
+    }
+
+    .overlay-content {
+      position: relative;
+      top: 25%;
+      left: 0;
+      right: 0;
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .overlay a {
+      padding: 8px;
+      margin: 0px auto;
+      text-decoration: none;
+      font-size: 36px;
+      color: #777;
+      display: block;
+      transition: .2s;
+    }
+
+    .overlay a:hover, .overlay a:focus {
+      color: #eee;
+    }
+
+    .overlay-change {
+      width: 100%;
+    }
+
+    @media screen and (max-height: 450px) {
+      overlay a {
+        font-size: 20px;
+      }
+    }
+
+    .content {
+      width: 50%;
+      margin: 0 auto;
+    }
+
+    .contnet p {
+      margin: 0 auto;
+    }
+
+    .menu-button {
+      cursor: pointer;
+      position: fixed;
+      top: 20px;
+      right: 45px;
+    }
+
+    .bar1, .bar2, .bar3 {
+      width: 30px;
+      height: 5px;
+      background-color: #222;
+      margin: 5px 0;
+      transition: 0.3s;
+    }
+
+    .menu-button:hover .bar1, .menu-button:hover .bar2, .menu-button:hover .bar3 {
+      background-color: #888;
+    }
+
+    .icon-change .bar1 {
+      background-color: #fff;
+      transform: rotate(-45deg) translate(-7px, 6px);
+    }
+
+    .icon-change .bar2 {
+      opacity: 0;
+    }
+
+    .icon-change .bar3 {
+      background-color: #eee;
+      transform: rotate(45deg) translate(-8px, -8px);
+    }
+  </style>
+</head>
+<body>
+  <nav id="myNav" class="overlay">
+    <div class="overlay-content">
+      <a href="#">About</a>
+      <a href="#">Services</a>
+      <a href="#">Clients</a>
+      <a href="#">Content</a>
+      <a href="#">Projects</a>
+    </div>
+  </nav>
+
+  <div class="menu-button" onclick="toggleNav(this, 'sss')">
+    <div class="bar1"></div>
+    <div class="bar2"></div>
+    <div class="bar3"></div>
+  </div>
+
+  <div class="content">
+    <h2>Content Here</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque aspernatur inventore maiores aut, fugit blanditiis tempora, ipsam incidunt impedit sequi quisquam vero quis eum quia quos voluptas fugiat ab deserunt!</p>
+
+    <h2>Another section</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti voluptas quasi dicta, dolore tempora hic minus, inventore porro perferendis quo quas minima. Ex dolores libero laboriosam voluptates quo dolor perferendis!</p>
+
+    <h2>Last para</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque numquam magni culpa dignissimos id ipsum voluptates, deserunt distinctio dolorem unde? Sunt cupiditate quam adipisci nobis culpa non obcaecati veniam officiis.</p>
+
+    <h2>Wait, I need more contents</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla, voluptates, unde. Quasi, placeat, accusantium sapiente repellat molestiae omnis aspernatur unde iste, aut voluptate dolorum ipsum odio quae ab obcaecati qui.</p>
+
+    <h2>And, more</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium aperiam unde rem ipsum ab quas reiciendis veniam laborum libero deserunt exercitationem repellat veritatis enim nemo reprehenderit, soluta numquam quae eum.</p>
+  </div>
+
+  <script>
+    function toggleNav(el, str) {
+      el.classList.toggle('icon-change')
+      let overlay = document.getElementById('myNav')
+      overlay.classList.toggle('overlay-change')
+    }
+  </script>
+</body>
+</html>

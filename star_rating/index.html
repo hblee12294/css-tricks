@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Star Rating</title>
+  <style>
+    .rating span {
+      color: #797979;
+      font-size: 40px;
+      cursor: pointer;
+    }
+
+    .rating span:before {
+      content: '\2605';
+      position: absolute;
+      color: gold;
+      opacity: 0;
+      transition: .3s;
+    }
+
+    .rating span:hover:before,
+    .rating span:hover ~ span:before {
+      opacity: 1;
+    }
+
+    .rating > span:hover,
+    .rating > span:hover ~ span {
+      color: transparent;
+    }
+    
+    .rating {
+      unicode-bidi: bidi-override;
+      direction: rtl;
+      text-align: center;
+    }
+
+    /* Reverse container */
+    .reverse-container {
+      padding: 5px 10px;
+      border: 1px dashed #222;
+    }
+
+    .reverse {
+      direction: rtl;
+      unicode-bidi: bidi-override;
+    }
+  </style>
+</head>
+<body>
+  <div class="rating">
+    <span>&#9733</span><span>&#9733</span><span>&#9733</span><span>&#9733</span><span>&#9733</span>
+  </div>
+
+  <div class="reverse-container">
+    <p class="reverse">I love her</p>
+    <p class="reverse">我爱她</p>
+  </div>
+</body>
+</html>
