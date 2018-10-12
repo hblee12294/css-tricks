@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Lightbox</title>
+  <style>
+    body {
+      font-family: Helvetica;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    img {
+      width: 100%;
+    }
+
+    .column {
+      float: left;
+      width: 25%;
+      transition: 0.5s;
+    }
+
+    .row > .column {
+      padding: 0 5px;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      height: 100%;
+      top: 0;
+      left: 0;
+      /* z-index: 1; */
+      overflow: auto;
+      background-color: rgb(0, 0, 0);
+      padding-top: 50px;
+    }
+
+    .modal-content {
+      position: relative;
+      margin: auto;
+      padding: 0;
+      width: 90%;
+      max-width: 1200px;
+    }
+
+    .close {
+      color: #fff;
+      position: absolute;
+      top: 10px;
+      right: 25px;
+      font-size: 35px;
+    }
+
+    .close:hover, .close:focus {
+      color: #999;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .slides {
+      display: none;
+    }
+
+    .cursor {
+      cursor: pointer;
+    }
+
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      margin-top: -50px;
+      color: #fff;
+      font-size: 20px;
+      font-weight: bold;
+      transition: 0.5s ease;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+    }
+    
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+
+    .prev:hover, .next:hover {
+      background-color: rgba(0,0,0,.7);
+    }
+
+    .numbertext {
+      color: #fff;
+      font-size: 12px;
+      padding: 8px 12px;
+      position: absolute;
+      top: 0;
+    }
+
+    .caption-container {
+      text-align: center;
+      background-color: #000;
+      padding: 2px 16px;
+      color: #fff;
+    }
+
+    .demo {
+      opacity: .6;
+    }
+
+    .active, .demo:hover {
+      opacity: 1;
+    }
+
+    img.hover-shadow {
+      transition: .3s;
+    }
+
+    img.hover-shadow:hover {
+      color: #000;
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    }
+
+    /* clearfix */
+    .clearfix {
+      *zoom: 1;
+    }
+
+    .clearfix:before, .clearfix:after {
+      display: table;
+      clear: both;
+      line-height: 0;
+      content: '';
+    }
+  </style>
+</head>
+<body>
+  <div class="lightbox">
+    <div class="row clearfix">
+      <div class="column">
+        <img src="img1.jpg" onclick="openModal();currentSlide(1)" class="hover-shadow" />
+      </div>
+      <div class="column">
+        <img src="img2.jpg" onclick="openModal();currentSlide(2)" class="hover-shadow" />
+      </div>
+      <div class="column">
+        <img src="img3.jpg" onclick="openModal();currentSlide(3)" class="hover-shadow" />
+      </div>
+      <div class="column">
+        <img src="img4.jpg" onclick="openModal();currentSlide(4)" class="hover-shadow" />
+      </div>
+    </div>
+
+    <div id="myModal" class="modal">
+      <span class="close cursor" onclick="closeModal()">&times;</span>
+
+      <div class="modal-content">
+        <div class="slides">
+          <div class="numbertext">1 / 4</div>
+          <img src="img1_wide.jpg" alt="">
+        </div>
+        <div class="slides">
+          <div class="numbertext">2 / 4</div>
+          <img src="img2_wide.jpg" alt="">
+        </div>
+        <div class="slides">
+          <div class="numbertext">3 / 4</div>
+          <img src="img3_wide.jpg" alt="">
+        </div>
+        <div class="slides">
+          <div class="numbertext">4 / 4</div>
+          <img src="img4_wide.jpg" alt="">
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+        <div class="caption-container">
+          <p id="caption"></p>
+        </div>
+
+        <div class="column">
+          <img src="img1.jpg" alt="Nature" class="demo cursor" onclick="currentSlide(1)">
+        </div>
+
+        <div class="column">
+          <img src="img2.jpg" alt="Trolltunga" class="demo cursor" onclick="currentSlide(2)">
+        </div>
+
+        <div class="column">
+          <img src="img3.jpg" alt="Mountains" class="demo cursor" onclick="currentSlide(3)">
+        </div>
+
+        <div class="column">
+          <img src="img4.jpg" alt="Lights" class="demo cursor" onclick="currentSlide(4)">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openModal() {
+      document.getElementById('myModal').style.display = 'block'
+    }
+
+    function closeModal() {
+      document.getElementById('myModal').style.display = 'none'
+    }
+
+    let slideIndex = 1
+    showSlides(slideIndex)
+
+    function plusSlides(n) {
+      showSlides(slideIndex += n)
+    }
+
+    function currentSlide(n) {
+      showSlides(slideIndex = n)
+    }
+
+    function showSlides(n) {
+      let slides = document.getElementsByClassName('slides')
+      let dots = document.getElementsByClassName('demo')
+      let captionText = document.getElementById('caption')
+
+      if (n > slides.length) {
+        slideIndex = 1
+      }
+
+      if (n < 1) {
+        slideIndex = slides.length
+      }
+
+      for (let i = 0; i < slides.length; ++i) {
+        slides[i].style.display = 'none'
+      }
+
+      for (let i = 0; i < dots.length; ++i) {
+        dots[i].className = dots[i].className.replace(' active', '')
+      }
+
+      slides[slideIndex-1].style.display = 'block'
+      dots[slideIndex-1].className += ' active'
+      captionText.innerHTML = dots[slideIndex-1].alt
+    }
+  </script>
+</body>
+</html>
