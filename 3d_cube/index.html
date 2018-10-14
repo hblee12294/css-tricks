@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>3D Cube</title>
+  <style>
+    .scene {
+      width: 200px;
+      height: 200px;
+      /* border: 1px solid #ccc; */
+      margin: 80px;
+      perspective: 400px;
+    }
+
+    .cube {
+      width: 200px;
+      height: 200px;
+      position: relative;
+      transform-style: preserve-3d;
+      transform: translateZ(-100px);
+      transition: transform 1s;
+    }
+
+    .cube.show-front {
+      transform: translateZ(-100px) rotateY(0deg);
+    }
+    .cube.show-right {
+      transform: translateZ(-100px) rotateY(-90deg);
+    }
+    .cube.show-back {
+      transform: translateZ(-100px) rotateY(-180deg);
+    }
+    .cube.show-left {
+      transform: translateZ(-100px) rotateY(90deg);
+    }
+    .cube.show-top {
+      transform: translateZ(-100px) rotateX(-90deg);
+    }
+    .cube.show-bottom, .cube:hover {
+      transform: translateZ(-100px) rotateX(90deg);
+    }
+
+    .cube-face {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      border: 2px solid black;
+      line-height: 200px;
+      font-size: 40px;
+      font-weight: bold;
+      color: white;
+      text-align: center;
+    }
+
+    .face-front {
+      background: hsla(0, 100%, 50%, .7);
+      transform: rotateY(0deg) translateZ(100px);
+    }
+    .face-right {
+      background: hsla(60, 100%, 50%, .7);
+      transform: rotateY(90deg) translateZ(100px);
+    }
+    .face-back {
+      background: hsla(120, 100%, 50%, .7);
+      transform: rotateY(180deg) translateZ(100px);
+    }
+    .face-left {
+      background: hsla(180, 100%, 50%, .7);
+      transform: rotateY(-90deg) translateZ(100px);
+    }
+    .face-top {
+      background: hsla(240, 100%, 50%, .7);
+      transform: rotateX(90deg) translateZ(100px);
+    }
+    .face-bottom {
+      background: hsla(300, 100%, 50%, .7);
+      transform: rotateX(-90deg) translateZ(100px);
+    }
+  </style>
+</head>
+<body>
+  <div class="scene">
+    <div class="cube">
+      <div class="cube-face face-front">front</div>
+      <div class="cube-face face-back">back</div>
+      <div class="cube-face face-right">right</div>
+      <div class="cube-face face-left">left</div>
+      <div class="cube-face face-top">top</div>
+      <div class="cube-face face-bottom">bottom</div>
+    </div>
+  </div>
+
+  <div class="radio-group">
+    <label>
+      <input type="radio" name="rotate-cube-side" value="front" checked/>front
+    </label>
+    <label>
+      <input type="radio" name="rotate-cube-side" value="right">right
+    </label>
+    <label>
+      <input type="radio" name="rotate-cube-side" value="back">back
+    </label>
+    <label>
+      <input type="radio" name="rotate-cube-side" value="left">left
+    </label>
+    <label>
+      <input type="radio" name="rotate-cube-side" value="top">top
+    </label>
+    <label>
+      <input type="radio" name="rotate-cube-side" value="bottom">bottom
+    </label>
+  </div>
+
+  <script>
+    let cube = document.querySelector('.cube')
+    let radioGroup = document.querySelector('.radio-group')
+    let currentClass = ''
+
+    function changeSide() {
+      let checkedRadio = radioGroup.querySelector(':checked')
+      let showClass = 'show-' + checkedRadio.value
+      if (currentClass) {
+        cube.classList.remove(currentClass)
+      }
+      cube.classList.add(showClass)
+      currentClass = showClass
+    }
+
+    changeSide()
+
+    radioGroup.addEventListener('change', changeSide)
+  </script>
+</body>
+</html>
