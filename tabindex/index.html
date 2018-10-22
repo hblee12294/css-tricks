@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Tabindex</title>
+</head>
+<body>
+  <p class="instructions">Click anywhere in this pane, then try tabbing through the elements.</p>
+
+  <form>
+    <label>First in tab order: <input type="text"></label>
+    <div tabindex="0">Tabbable due to tabindex.</div>
+    <div>Not tabbable: no tabindex.</div>
+    <label>Third in tab order: <input type="text"></label>
+    <div tabindex="-1">Negative tabindex</div>
+  </form>
+</body>
+</html>
