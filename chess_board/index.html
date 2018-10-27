@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Chess Board</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+
+    #container {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 auto;
+      width: 80vw;
+    }
+
+    .cell {
+      width: 2vw;
+      height: 2vw;
+      background-color: lightblue;
+      border: 2px solid #fff;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <!-- 30 * 30 -->
+  <div id="container">
+    <div class="cell"></div>
+  </div>
+
+  <script>
+    const container = document.getElementById('container')
+    const children = container.children
+
+    const frag = document.createDocumentFragment()
+    for (let i = 0; i < 900; ++i) {
+      const cell = document.createElement('div')
+      cell.className = "cell"
+      frag.append(cell)
+    }
+    container.append(frag)
+
+    children[1].style.backgroundColor = 'black'
+
+  </script>
+</body>
+</html>
