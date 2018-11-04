@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Dynamic Background</title>
+  <style>
+    html, body {
+      padding: 0;
+      margin: 0;
+    }
+
+    main {
+      width: 100vw;
+      height: 100vh;
+      /* background-color: #f1f1f1; */
+      animation: colorful 20s infinite;
+      animation-direction: alternate;
+    }
+
+    @keyframes colorful {
+      0% {
+        background-color: #fff;
+      }
+      10% {
+        background-color: rgb(245, 118, 118);
+      }
+      20% {
+        background-color: rgb(245, 222, 118);
+      }
+      30% {
+        background-color: rgb(186, 245, 118);
+      }
+      40% {
+        background-color: rgb(118, 245, 156);
+      }
+      50% {
+        background-color: rgb(121, 253, 220);
+      }
+      60% {
+        background-color: rgb(121, 189, 253);
+      }
+      70% {
+        background-color: rgb(121, 156, 253);
+      }
+      80% {
+        background-color: rgb(200, 121, 253);
+      }
+      90% {
+        background-color: rgb(252, 112, 189);
+      }
+      100% {
+        background-color: rgb(250, 119, 141);
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+
+  </main>
+</body>
+</html>
