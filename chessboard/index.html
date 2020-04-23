@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chessboard</title>
+    <style>
+      body {
+        margin: 0;
+      }
+
+      ul,
+      li {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      #chessboard {
+        /* background: conic-gradient(#eee 25%, white 0deg 50%, #eee 0deg 75%, white 0deg) 0 / 20px 20px; */
+        background: conic-gradient(
+          #eee 25%,
+          white 0deg 50%,
+          #eee 0deg 75%,
+          white 0deg
+        );
+      }
+
+      #container {
+        height: 100vh;
+        width: 100vw;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+
+      #container li:nth-child(1) {
+        background: #aaa;
+        background: conic-gradient(
+          #aaa 25%,
+          white 0deg 50%,
+          #aaa 0deg 75%,
+          white 0deg
+        );
+      }
+
+      #container li:nth-child(2) {
+        background: #bbb;
+        background: conic-gradient(
+            #aaa 25%,
+            white 0deg 50%,
+            #aaa 0deg 75%,
+            white 0deg
+          )
+          0px / 30px 30px;
+      }
+
+      #container li:nth-child(3) {
+        background: #ccc;
+        background: conic-gradient(
+            rgb(218, 79, 79) 25%,
+            rgb(250, 235, 104) 0deg 50%,
+            rgb(68, 126, 250) 0deg 75%,
+            rgb(116, 253, 123) 0deg
+          )
+          0px / 30px 30px;
+      }
+
+      #container li:nth-child(4) {
+        background: #ddd;
+        background: conic-gradient(
+          rgb(218, 79, 79) 25%,
+          rgb(250, 235, 104) 0deg 50%,
+          rgb(68, 126, 250) 0deg 75%,
+          rgb(116, 253, 123) 0deg
+        );
+      }
+    </style>
+  </head>
+  <body>
+    <ul id="container">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </body>
+</html>
